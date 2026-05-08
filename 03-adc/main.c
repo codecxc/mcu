@@ -31,10 +31,7 @@ void led_blink_set_period_ms_callback(const char* args) {
 
 }
 void mem_callback(const char* args) {
-
-    
     uint32_t addr = 0;
-
     mem(addr);
 }
 

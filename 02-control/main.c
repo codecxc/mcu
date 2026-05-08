@@ -3,7 +3,7 @@
 #include "led-task/led-task.h"
 #include "pico/stdio.h"
 #include <stdio.h>
-#include "adc-task/adc-task.h"
+
 #define DEVICE_VRSN "v0.0.1"
 #define DEVICE_NAME "pico"
 void version_callback(const char* args)
@@ -31,23 +31,18 @@ void led_blink_set_period_ms_callback(const char* args) {
 
 }
 void mem_callback(const char* args) {
-
-    
     uint32_t addr = 0;
-
+    sscanf(args, "%x", &addr);
     mem(addr);
 }
 
 void wmem_callback(const char* args) {
-
-    
-    uint32_t addr = 0;
-    uint32_t value = 0;
-    
-
-    
+    uint32_t addr=0;
+    uint32_t value=0;
+    sscanf(args, "%x %x", &addr, &value);
     wmem(addr, value);
 }
+
 void help(const char* args);
 
 
